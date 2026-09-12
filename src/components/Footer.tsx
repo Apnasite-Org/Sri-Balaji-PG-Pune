@@ -39,6 +39,7 @@ export default function Footer() {
             PG-2 · Hinjewadi Phase 1
           </Link>
           <Link href="/login" className="block py-0.5 text-sm hover:text-white">Resident login</Link>
+          <Link href="/admin" className="block py-0.5 text-sm hover:text-white">Owner admin →</Link>
         </div>
         <div>
           <b className="mb-2 block text-white">Reach us</b>

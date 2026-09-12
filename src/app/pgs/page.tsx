@@ -16,9 +16,7 @@ function List() {
     (p) =>
       (type === "All" || p.type === type) &&
       (!locality || p.locality === locality) &&
-      (!budget || Math.min(p.triple, p.twin, p.single) <= budget) &&
-      (!sharing ||
-        (sharing === "Single" ? true : sharing === "Twin" ? true : true))
+      (!budget || Math.min(p.triple, p.twin, p.single) <= budget)
   );
 
   const shown = sharing

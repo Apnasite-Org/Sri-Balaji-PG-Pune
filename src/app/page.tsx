@@ -39,8 +39,8 @@ export default function Home() {
           <span className="inline-block rounded-full border border-linen bg-white px-3.5 py-1.5 text-xs font-bold shadow">
             ✨ Hinjewadi&apos;s cozy PG family · Since 2019
           </span>
-          <h1 className="mt-3 font-display text-4xl leading-[1.08] sm:text-6xl">
-            Ghar jaisa comfort,
+          <h1 className="mt-3 font-display text-4xl leading-[1.15] sm:text-6xl">
+            <span className="font-hindi font-normal">घर जैसा comfort,</span>
             <br />
             <em className="text-terra">near Hinjewadi IT Park.</em>
           </h1>
@@ -168,7 +168,7 @@ export default function Home() {
             title="Everything you need, included"
             sub="One rent covers it all — the way India's best co-living brands do it, with a homely touch."
           />
-<div className="grid grid-cols-2 gap-3 sm:grid-cols-4 xl:grid-cols-8">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 xl:grid-cols-8">
             {FACILITIES.map((f) => (
               <div key={f.title} className="rounded-2xl border border-linen bg-cream p-4">
                 <span className="text-2xl">{FAC_ICON[f.icon]}</span>
@@ -272,7 +272,7 @@ export default function Home() {
       {/* ─── GALLERY ─── */}
       <section className="page-shell pt-14">
         <SectionHead kicker="Glimpses" title="Real rooms, real warmth" />
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 xl:grid-cols-8">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 xl:grid-cols-8">
           {PGS.slice(0, 4).flatMap((p) => p.images.slice(0, 1)).concat([
             "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80&auto=format&fit=crop",
             "https://images.unsplash.com/photo-1543353071-873f17a7a088?w=600&q=80&auto=format&fit=crop",

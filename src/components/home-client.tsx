@@ -67,15 +67,31 @@ export function SearchCard() {
   );
 }
 
-// ─── Food today (client: avoids date hydration mismatch) ─────────────────────
+// ─── Food today (client: avoids date hydration mismatch; honours admin edits)─
 export function FoodSection() {
   const days = Object.keys(MENU);
   const [day, setDay] = useState("Monday");
+  const [menu, setMenu] = useState(MENU);
   useEffect(() => {
     setDay(days[(new Date().getDay() + 6) % 7]);
+    try {
+      const raw = localStorage.getItem("lb_admin_v1");
+      const over = raw ? (JSON.parse(raw).menuOverride as Record<string, Partial<(typeof MENU)[string]>> | undefined) || {} : {};
+      if (Object.keys(over).length) {
+        setMenu((m) => {
+          const next = { ...m };
+          for (const d of Object.keys(over)) {
+            if (next[d]) next[d] = { ...next[d], ...over[d] };
+          }
+          return next;
+        });
+      }
+    } catch {
+      /* ignore */
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const m = MENU[day];
+  const m = menu[day];
   const meals: [string, string][] = [
     ["🌅 Breakfast", m.b],
     ["☀️ Lunch", m.l],
